@@ -54098,14 +54098,14 @@ Processor.prototype = {
         error: data,
         ready: 'Ready',
         aborted: 'Aborted.',
-        busy: data + ' <img id=busy src=\'imgs/busy.gif\'>',
-        loading: 'Loading ' + data + ' <img id=busy src=\'imgs/busy.gif\'>',
+        busy: data + ' <img id=busy src=\'images/busy.gif\'>',
+        loading: 'Loading ' + data + ' <img id=busy src=\'images/busy.gif\'>',
         loaded: data,
         saving: data,
         saved: data,
-        converting: 'Converting ' + data + ' <img id=busy src=\'imgs/busy.gif\'>',
-        fetching: 'Fetching ' + data + ' <img id=busy src=\'imgs/busy.gif\'>',
-        rendering: 'Rendering. Please wait <img id=busy src=\'imgs/busy.gif\'>'
+        converting: 'Converting ' + data + ' <img id=busy src=\'images/busy.gif\'>',
+        fetching: 'Fetching ' + data + ' <img id=busy src=\'images/busy.gif\'>',
+        rendering: 'Rendering. Please wait <img id=busy src=\'images/busy.gif\'>'
       };
       var content = statusMap[status] ? statusMap[status] : data;
       if (status === 'error') {
@@ -54556,14 +54556,14 @@ function init() {
   if (design) {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', design, true);
-    gProcessor.setStatus('Loading ' + design + " <img id=busy src='imgs/busy.gif'>");
+    gProcessor.setStatus('Loading ' + design + " <img id=busy src='images/busy.gif'>");
 
     xhr.onload = function () {
       var source = this.responseText;
       // console.log(source);
 
       if (design.match(/\.jscad$/i) || design.match(/\.js$/i)) {
-        gProcessor.setStatus('Processing ' + design + " <img id=busy src='imgs/busy.gif'>");
+        gProcessor.setStatus('Processing ' + design + " <img id=busy src='images/busy.gif'>");
         gProcessor.setJsCad(source, design);
       }
     };

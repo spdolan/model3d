@@ -11,12 +11,13 @@
     </div>
 
 <!-- setup display of the viewer, i.e. canvas -->
-    <div oncontextmenu="return false;" id="viewerContext" design-url= "https://github.com/jscad/OpenJSCAD.org/blob/master/packages/examples/logo.jscad"></div>
+    <div oncontextmenu="return false;" id="viewerContext" design-url= "<%= asset_path('name_stamp_v0.jscad') %>"></div>
 
 <!-- setup display of the status, as required by OpenJSCAD.js -->
 <!-- set display: block to display this -->
-    <div id="tail" style="display: none;">
+    <div id="tail" >
       <div id="statusdiv"></div>
+
     </div>
   </div>
 
