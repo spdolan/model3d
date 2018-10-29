@@ -53585,7 +53585,7 @@ module.exports = function generateOutputFileFileSystem(extension, blob, callback
   // console.log("Trying download via FileSystem API")
   // create a random directory name:
   var dirname = 'OpenJsCadOutput1_' + parseInt(Math.random() * 1000000000, 10) + '_' + extension;
-  var filename = 'output.' + extension; // FIXME this should come from this.filename
+  var filename = 'my_model3d.' + extension; //output. FIXME this should come from this.filename
   request(TEMPORARY, 20 * 1024 * 1024, function (fs) {
     fs.root.getDirectory(dirname, { create: true, exclusive: true }, function (dirEntry) {
       dirEntry.getFile(filename, { create: true, exclusive: true }, function (fileEntry) {
@@ -53888,6 +53888,7 @@ Processor.prototype = {
     this.statusspan.id = 'statusspan';
     this.statusbuttons = document.createElement('span');
     this.statusbuttons.id = 'statusbuttons';
+    this.statusbuttons.className = 'input-group';
     this.statusdiv.appendChild(this.statusspan);
     this.statusdiv.appendChild(this.statusbuttons);
     this.abortbutton = document.createElement('button');
@@ -53908,8 +53909,15 @@ Processor.prototype = {
     };
     this.statusbuttons.appendChild(this.generateOutputFileButton);
     this.downloadOutputFileLink = document.createElement('a');
-    this.downloadOutputFileLink.className = 'downloadOutputFileLink'; // so we can css it
+    this.downloadOutputFileLink.className = 'downloadOutputFileLink btn btn-sm btn-info'; // so we can css it
     this.statusbuttons.appendChild(this.downloadOutputFileLink);
+
+    // // add in save to db span
+    // this.savespan = document.createElement('span');
+    // this.savespan.id = 'savespan';
+    // this.savespan.className = 'btn btn-sm btn-info';
+    // this.savespan.innerHTML = 'Save Model';
+    // this.statusdiv.appendChild(this.savespan);
 
     this.parametersdiv = this.containerdiv.parentElement.querySelector('div#parametersdiv');
     if (!this.parametersdiv) {
@@ -53918,7 +53926,7 @@ Processor.prototype = {
       this.containerdiv.parentElement.appendChild(this.parametersdiv);
     }
     this.parameterstable = document.createElement('table');
-    this.parameterstable.className = 'parameterstable';
+    this.parameterstable.className = 'parameterstable table';
     this.parametersdiv.appendChild(this.parameterstable);
 
     element = this.parametersdiv.querySelector('button#updateButton');
@@ -53936,6 +53944,7 @@ Processor.prototype = {
     var instantUpdateCheckbox = document.createElement('input');
     instantUpdateCheckbox.type = 'checkbox';
     instantUpdateCheckbox.id = 'instantUpdate';
+    instantUpdateCheckbox.checked = true;
     this.parametersdiv.appendChild(instantUpdateCheckbox);
 
     element = document.getElementById('instantUpdateLabel');
@@ -54296,7 +54305,7 @@ Processor.prototype = {
 
   downloadLinkTextForCurrentObject: function downloadLinkTextForCurrentObject() {
     var ext = this.selectedFormatInfo().extension;
-    return 'Download ' + ext.toUpperCase();
+    return 'Save My ' + ext.toUpperCase();
   },
 
   createGroupControl: function createGroupControl(definition) {

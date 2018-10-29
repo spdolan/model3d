@@ -1,0 +1,91 @@
+<p id="notice"><%= notice %></p>
+
+<% if user_signed_in? %>
+  <div class="jumbotron bg-success text-center">Welcome back, <%= current_user.id %>!</div>
+<% else %>
+  <div class="jumbotron bg-light">
+    <h1 class="text-center">Welcome to Model3d!</h1>
+
+</div>
+<% end %>
+
+<h2>What is Model3d?</h2>
+<p>For something extensive, please check our <a href=<%= about_path %>>About</a> page.</p>
+
+<p>For those is in the tl:dr mindset, we are a place where you can customize <a href=<%= stamp_path %>>Stamps</a> and <a href=<%= keychain_path %>>Keychains</a> to be 3D Printed.</p>
+
+<p>We are happy to provide these files for you to print yourself, or will print and ship directly to you!    
+</p>
+
+<p>Additionally, we will be adding magnets (!!!) very soon.</p>
+
+
+<h3 class="text-center">Examples:</h3>
+<div class="container bd-example">
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src=<%= asset_path('sd_stamp.jpg') %> alt="First slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src=<%= asset_path('sd_keychain.jpg') %> alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src=<%= asset_path('blank_profile.jpg') %> alt="Third slide">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+</div>
+
+<!-- <center>
+<div class="jumbotron">
+<div class="bg_strobe" style="margin-left: -10px; margin-top: -10px;"></div>
+<div style="transform: scale(0.8, 0.8); margin-left: 590px; margin-top: -750px">
+  <div style="margin-top: 470px; transform: rotate(30deg);">
+    <div class="dark_strobe" style="margin-top: 0px; margin-left: -316px;"></div>
+    <div class="dark_strobe" style="margin-top: -100px; margin-left: 316px;"></div>
+    <div class="circle dark_strobe" style="margin-top: -82px; width: 416px;"></div>
+
+    <div class="trapezoid strobe" style="margin-top: -296px;"></div>
+    <div class="circle strobe" style="margin-top: -60px; width: 416px; height: 81;"></div>
+
+    <div class="dark_strobe" style="width: 250px; height: 300px; margin-top: -480px;"></div>
+    <div class="dark_strobe circle" style="width: 250px; height: 96px; margin-top: -50px;"></div>
+
+    <div class="circle darkest_strobe" style="margin-top: -200px; width: 250px; height: 96px;"></div>
+    <div class="darkest_strobe" style="margin-top: -150px; margin-left: -150px;"></div>
+    <div class="darkest_strobe" style="margin-top: -100px; margin-left: 150px;"></div>
+
+    <div class="dark_strobe" style="margin-top: -185px; margin-left: -400px;"></div>
+    <div class="dark_strobe" style="margin-top: -100px; margin-left: 400px;"></div>
+    <div class="circle dark_strobe" style="margin-top: -82px;"></div>
+
+    <div class="circle strobe" style="margin-top: -258px;"></div>
+  </div>
+
+  <div style="transform: rotate(-10deg); margin-top: -440px; margin-left: 400px;">
+    <h1  style="font-size: 66px; height: 120px; transform: skew(20deg, 20deg); color: Black;">3Dshaper</h1>
+  </div>
+</div>
+
+</center>
+</div> -->
+<br>
+
+
+
+

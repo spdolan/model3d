@@ -3,7 +3,7 @@
 @import "font-awesome";
 
 .container-fluid{
-	padding-top: 55px;
+	padding-top: 35px;
 	
 }
 
@@ -114,3 +114,173 @@ canvas {
   vertical-align: middle;
 }
 
+#statusdiv span {
+  padding: 10px;
+}
+
+#statusbuttons {
+  
+}
+
+.strobe {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    position: relative;
+    -webkit-animation-name: strobe; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 15s; /* Safari 4.0 - 8.0 */
+    -webkit-animation-delay: 2s; /* Safari 4.0 - 8.0 */
+    animation-name: strobe;
+    animation-duration: 15s;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes strobe {
+    0%   {background-color:red;}
+    16%  {background-color:orange;}
+    32%  {background-color:yellow;}
+    48%  {background-color:green;}
+    64%  {background-color:blue;}
+    80%  {background-color:purple;}
+    100% {background-color:red;}
+}
+
+/* Standard syntax */
+@keyframes strobe {
+    0%   {background-color:red;}
+    16%  {background-color:orange;}
+    32%  {background-color:yellow;}
+    48%  {background-color:green;}
+    64%  {background-color:blue;}
+    80%  {background-color:purple;}
+    100% {background-color:red;}
+}
+
+.dark_strobe {
+    width: 100px;
+    height: 100px;
+    background-color: darkred;
+    position: relative;
+    -webkit-animation-name: dark_strobe; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 15s; /* Safari 4.0 - 8.0 */
+    -webkit-animation-delay: 2s; /* Safari 4.0 - 8.0 */
+    animation-name: dark_strobe;
+    animation-duration: 15s;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes dark_strobe {
+    0%   {background-color:darkred;}
+    16%  {background-color:darkorange;}
+    32%  {background-color:gold;}
+    48%  {background-color:darkgreen;}
+    64%  {background-color:darkblue;}
+    80%  {background-color:indigo;}
+    100% {background-color:darkred;}
+}
+
+/* Standard syntax */
+@keyframes dark_strobe {
+    0%   {background-color:darkred;}
+    16%  {background-color:darkorange;}
+    32%  {background-color:gold;}
+    48%  {background-color:darkgreen;}
+    64%  {background-color:darkblue;}
+    80%  {background-color:indigo;}
+    100% {background-color:darkred;}
+}
+
+.darkest_strobe {
+    width: 100px;
+    height: 100px;
+    background-color: #5b0404;
+    position: relative;
+    -webkit-animation-name: darkest_strobe; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 15s; /* Safari 4.0 - 8.0 */
+    -webkit-animation-delay: 2s; /* Safari 4.0 - 8.0 */
+    animation-name: darkest_strobe;
+    animation-duration: 15s;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes darkest_strobe {
+    0%   {background-color: #5b0404;}
+    16%  {background-color: #da7920;}
+    32%  {background-color:goldenrod;}
+    48%  {background-color:#003d18;}
+    64%  {background-color:#01183d;}
+    80%  {background-color:#250447;}
+    100% {background-color:#5b0404;}
+}
+
+/* Standard syntax */
+@keyframes darkest_strobe {
+    0%   {background-color: #5b0404;}
+    16%  {background-color: #da7920;}
+    32%  {background-color:goldenrod;}
+    48%  {background-color:#003d18;}
+    64%  {background-color:#01183d;}
+    80%  {background-color:#250447;}
+    100% {background-color:#5b0404;}
+}
+
+.circle {
+  height: 160px;
+  width: 500px;
+  border-radius: 50%;
+  position: relative;
+}
+
+.trapezoid {
+  height: 100px;
+  width: 400px;
+  -webkit-clip-path: polygon(20% 20%, 80% 20%, 100% 100%, 0% 100%);
+  clip-path: polygon(20% 20%, 80% 20%, 100% 100%, 0% 100%);
+}
+
+.bg_strobe {
+    width: 1420px;
+    height: 740px;
+    background-color: lightgreen;
+    position: relative;
+    -webkit-animation-name: bg_strobe; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 15s; /* Safari 4.0 - 8.0 */
+    -webkit-animation-delay: 2s; /* Safari 4.0 - 8.0 */
+    animation-name: bg_strobe;
+    animation-duration: 15s;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes bg_strobe {
+    0%   {background-color:lightgreen;}
+    16%  {background-color:paleturquoise;}
+    32%  {background-color:plum;}
+    48%  {background-color:lightcoral;}
+    64%  {background-color:sandybrown;}
+    80%  {background-color:khaki;}
+    100% {background-color:lightgreen;}
+}
+
+/* Standard syntax */
+@keyframes bg_strobe {
+    0%   {background-color:lightgreen;}
+    16%  {background-color:paleturquoise;}
+    32%  {background-color:plum;}
+    48%  {background-color:lightcoral;}
+    64%  {background-color:sandybrown;}
+    80%  {background-color:khaki;}
+    100% {background-color:lightgreen;}
+}
+
+.bd-example {
+  height: 15%;
+  width: 55%;
+}

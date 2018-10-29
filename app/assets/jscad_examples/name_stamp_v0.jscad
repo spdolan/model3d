@@ -5,9 +5,9 @@
 
 function getParameterDefinitions() {
   return [
-  { name: 'text', initial: 'SPD', type: 'text', caption: 'Your insignia'},
-    { name: 'thickness', initial: 3, type: 'float', caption: 'Text thickness'},
-  { name: 'height', caption: 'Height:', type: 'float', default: 20 },
+  { name: 'text', initial: 'SPD', type: 'text', caption: 'Insignia: '},
+    { name: 'thickness', initial: 3, type: 'float', caption: 'Text Thickness: '},
+  { name: 'height', caption: 'Height: ', type: 'float', default: 20 },
   ];
 }
 
@@ -33,12 +33,12 @@ function main(param) {
  
  //create stacked cylinders for stamp body
  var seg = 6;
- o.push(cylinder({r1: w/3, r2: w/3, h: param.height/seg}).translate([0, 0, 0]));
- o.push(cylinder({r1: w/3, r2: w/4, h: param.height/seg}).translate([0, 0, param.height * (1/seg)]));
- o.push(cylinder({r1: w/4, r2: w/4, h: param.height/seg}).translate([0, 0, param.height * (2 * (1/seg))]));
- o.push(cylinder({r1: w/4, r2: w/3, h: param.height/seg}).translate([0, 0, param.height * (3 * (1/seg))]));
- o.push(cylinder({r1: w/3, r2: w/2, h: param.height/seg}).translate([0, 0, param.height * (4 * (1/seg))]));
- o.push(cylinder({r1: w/2, r2: w/2, h: param.height/seg}).translate([0, 0, param.height * (5 * (1/seg))]));
+ o.push(cylinder({r1: w/3, r2: w/3, h: param.height/seg}).setColor(css2rgb('dodgerblue')).translate([0, 0, 0]));
+ o.push(cylinder({r1: w/3, r2: w/4, h: param.height/seg}).setColor(css2rgb('dodgerblue')).translate([0, 0, param.height * (1/seg)]));
+ o.push(cylinder({r1: w/4, r2: w/4, h: param.height/seg}).setColor(css2rgb('dodgerblue')).translate([0, 0, param.height * (2 * (1/seg))]));
+ o.push(cylinder({r1: w/4, r2: w/3, h: param.height/seg}).setColor(css2rgb('dodgerblue')).translate([0, 0, param.height * (3 * (1/seg))]));
+ o.push(cylinder({r1: w/3, r2: w/2, h: param.height/seg}).setColor(css2rgb('dodgerblue')).translate([0, 0, param.height * (4 * (1/seg))]));
+ o.push(cylinder({r1: w/2, r2: w/2, h: param.height/seg}).setColor(css2rgb('dodgerblue')).translate([0, 0, param.height * (5 * (1/seg))]));
  
  return union(o);
   
