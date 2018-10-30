@@ -34,6 +34,7 @@ gem 'carrierwave'
 gem 'bootstrap'
 gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.3.1'
+gem 'figaro'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

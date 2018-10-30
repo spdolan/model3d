@@ -23,14 +23,18 @@
 	
 // });
 
-$(document).ready(function(){
+$( document ).on('turbolinks:load', function() {
 
 	//initial check if jSCAD lib is loaded
-	var err_div = $('#errordiv').attr('style');
-	console.log(err_div);
+	var jscad = $('#errordiv'); //document.getElementById('jscad-container');
+	if(jscad.length){
+		
+		var err_div = $('#errordiv').attr('style');
+		console.log(err_div);
 
-	if(err_div != 'display: none;'){
-		window.location.reload(true);
+		if(err_div != 'display: none;'){
+			window.location.reload(true);
+		};
 	};
 
 	$('.downloadOutputFileLink').on('click', function (e) {		  
