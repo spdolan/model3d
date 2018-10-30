@@ -53904,6 +53904,7 @@ Processor.prototype = {
     };
     this.statusbuttons.appendChild(this.formatDropdown);
     this.generateOutputFileButton = document.createElement('button');
+    this.generateOutputFileButton.className = 'genModel';
     this.generateOutputFileButton.onclick = function (e) {
       that.generateOutputFile();
     };

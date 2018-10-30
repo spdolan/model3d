@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'stamp' => 'home#stamp'
   get 'keychain' => 'home#keychain'
   get 'about' => 'home#about'
+  
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

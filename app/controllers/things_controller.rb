@@ -1,6 +1,6 @@
 class ThingsController < ApplicationController
   before_action :set_thing, only: [:show, :edit, :update, :destroy]
-
+  skip_before_action :verify_authenticity_token, :only => [:new, :create]
   # GET /things
   # GET /things.json
   def index

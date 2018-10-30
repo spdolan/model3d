@@ -19,13 +19,57 @@
 //= require openjscad_min
 //= require_tree .
 
+// $(window).load(function() {
+	
+// });
 
 $(document).ready(function(){
-$('#myTab a').on('click', function (e) {
-  e.preventDefault();
-  $(this).tab('show');
 
-});
+	//initial check if jSCAD lib is loaded
+	var err_div = $('#errordiv').attr('style');
+	console.log(err_div);
+
+	if(err_div != 'display: none;'){
+		window.location.reload(true);
+	};
+
+	$('.downloadOutputFileLink').on('click', function (e) {		  
+		  //check if user is signed in
+		  var sign_in = document.getElementById('signin');
+		  var msg = "We hope you enjoy your custom model! Sign In to share with others or order a print."
+		  if(sign_in !== null){
+		  //prevent JSCAD save file
+		  e.preventDefault();
+		  
+		  //grab tmp file url, and named variables from params
+		  var file_url = $(this).attr('href');
+		  var url_array = file_url.split(":")
+		  var thing_path = "localhost:" + url_array[url_array.length - 1]
+		  var file_title = $('[name="text"]').val();
+		  var msg = "Congrats on your custom model! Redirecting you to your home page."
+		  //create formData upload
+		  var data = new FormData();
+		  data.append(file_title, thing_path)
+		  
+		  console.log(thing_path);
+		  console.log(file_title);
+		  
+
+		  var get_url = "/things";
+		  $.ajax({
+				    
+				    type: "POST",
+				    url: get_url,
+				    data: { thing: { name: file_title + "_Stamp", description: "my thing", thing_url: thing_path, image_url:"" } },
+					
+    				
+				});
+
+			//window.location.reload(true);		  
+		}
+
+		alert(msg);
+	});
 });
 
 $('.carousel').carousel({
