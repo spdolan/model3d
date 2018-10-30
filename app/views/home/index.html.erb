@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <% if user_signed_in? %>
-  <div class="jumbotron bg-success text-center">Welcome back, <%= current_user.id %>!</div>
+  <div class="jumbotron bg-success text-center">Welcome back, <%= current_user.email %>!</div>
 <% else %>
   <div class="jumbotron bg-light">
     <h1 class="text-center">Welcome to Model3d!</h1>

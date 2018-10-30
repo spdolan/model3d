@@ -36,6 +36,10 @@ gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.3.1'
 gem 'figaro'
 
+#fog general to pull in AWS
+gem 'faker'
+gem 'fog-aws'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

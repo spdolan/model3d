@@ -37,37 +37,74 @@ $( document ).on('turbolinks:load', function() {
 		};
 	};
 
+	//send 3D file to Amazon S3
+	// $('.genModel').on('click', function (e) {
+
+	// 	// Create a new FormData object.
+	// 	var formData = new FormData();
+	// 	var file_url = $('.downloadOutputFileLink').attr('href');
+	// 	var file_title = $('[name="text"]').val();
+	// 	formData.append(name, file_url, file_title);
+
+	// 	// Set up the upload request.
+	// 	var xhr = new XMLHttpRequest();
+	// 	// Open the connection.
+	// 	xhr.open('POST', 'handler.php', true)
+	// 	xhr.onload = function () {
+	// 	  if (xhr.status === 200) {
+	// 	    // File(s) uploaded.
+	// 	    uploadButton.innerHTML = 'Upload';
+	// 	  } else {
+	// 	    alert('An error occurred!');
+	// 	  }
+	// 	};
+
+	// 	// Send the Data.
+	// 	xhr.send(formData);
+	// });
+
 	$('.downloadOutputFileLink').on('click', function (e) {		  
 		  //check if user is signed in
 		  var sign_in = document.getElementById('signin');
 		  var msg = "We hope you enjoy your custom model! Sign In to share with others or order a print."
 		  if(sign_in !== null){
 		  //prevent JSCAD save file
-		  e.preventDefault();
-		  
-		  //grab tmp file url, and named variables from params
-		  var file_url = $(this).attr('href');
-		  var url_array = file_url.split(":")
-		  var thing_path = "localhost:" + url_array[url_array.length - 1]
-		  var file_title = $('[name="text"]').val();
-		  var msg = "Congrats on your custom model! Redirecting you to your home page."
-		  //create formData upload
-		  var data = new FormData();
-		  data.append(file_title, thing_path)
-		  
-		  console.log(thing_path);
-		  console.log(file_title);
-		  
+			  e.preventDefault();
+			  
+			  //grab tmp file url, and named variables from params
+			  var file_url = $(this).attr('href');
+			  var url_array = file_url.split(":")
+			  var thing_path = "localhost:" + url_array[url_array.length - 1]
+			  var file_title = $('[name="text"]').val();
+			  var msg = "Congrats on your custom model! Redirecting you to your home page."
+			  //create formData upload
+			  var formData = new FormData(), $input = $(this);
+			  
+			  	//populate our flat formData
+			  	formData.append('thing[name]',file_title);
+			  	formData.append('thing[thing_url]',thing_path);
+			  	formData.append('thing[description',"");
+			  	formData.append('thing[image_url]',"");
 
-		  var get_url = "/things";
-		  $.ajax({
-				    
-				    type: "POST",
-				    url: get_url,
-				    data: { thing: { name: file_title + "_Stamp", description: "my thing", thing_url: thing_path, image_url:"" } },
-					
-    				
+				$.ajax({
+				  url: "/things",
+				  data: formData,
+				  cache: false,
+				  contentType: false,
+				  processData: false,
+				  type: 'POST'
 				});
+			  
+
+			  // var get_url = "/things";
+			  // $.ajax({
+					    
+					//     type: "POST",
+					//     url: get_url,
+					//     data: { thing: { name: file_title + "_Stamp", description: "my thing", thing_url: thing_path, image_url:"" } },
+						
+	    				
+					// });
 
 			//window.location.reload(true);		  
 		}
