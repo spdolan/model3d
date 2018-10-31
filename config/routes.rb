@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'home/about'
   get 'stamp' => 'home#stamp'
   get 'keychain' => 'home#keychain'
+  get 'magnet' => 'home#magnet'
   get 'about' => 'home#about'
   get 'my_things' => 'home#my_things'
 

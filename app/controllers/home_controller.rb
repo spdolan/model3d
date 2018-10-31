@@ -11,6 +11,10 @@ class HomeController < ApplicationController
   	@fileName = "name_keychain_v0.jscad"
   end
 
+   def magnet
+  	@fileName = "name_magnet_v0.jscad"
+  end
+
   def about
   end
 

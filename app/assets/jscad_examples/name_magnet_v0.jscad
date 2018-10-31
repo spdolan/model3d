@@ -1,14 +1,14 @@
 // title      : Name Plate
-// author     : Sean Dolan/Rene K. Mueller
+// author     : Sean Dolan
 // license    : MIT License
-// description: name plate with keychain hole
-// date       : 2018/10/27
-// file       : name_keychain_v0.jscad
+// description: magnet with text
+// date       : 2018/10/31
+// file       : name_magnet_v0.jscad
 
 function getParameterDefinitions () {
   return [
-    {name: 'text', initial: 'Sean Dolan', type: 'text', caption: 'Your name', size: 30},
-    {name: 'title', initial: 'Ruby on Rails Developer', type: 'text', caption: 'Your title', size: 30},
+    {name: 'text', initial: 'I <3 Model3d', type: 'text', caption: 'Your Text', size: 30},
+    {name: 'title', initial: '', type: 'text', caption: 'Your Subtext', size: 30},
     {name: 'thickness', initial: 3, type: 'float', caption: 'Thickness'}
   ];
 }
@@ -40,10 +40,11 @@ function main (param) {
   var m = 2;
   var w = b[1].x - b[0].x + m * 2;
   var h = b[1].y - b[0].y + m * 2;
+
   o.push(difference(
-      cube({size: [w, h, param.thickness], round: true, radius: 0.5}).translate([b[0].x - m, b[0].y - m, 0]),
-      cylinder({r1: h/10, r2: h/10, h: param.thickness}).translate([b[0].x + m, b[0].y + m, 0])
-      ).setColor([0.6, 0.1, 0.7]));
+      cylinder({r1: w/2, r2: w/2, h: param.thickness}),
+      cylinder({r1: w/4, r2: w/4, h: (param.thickness - (param.thickness * .1))})));
+
 
   return union(o);
 }

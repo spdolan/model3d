@@ -26,7 +26,10 @@
             <a class="nav-link" href=<%= keychain_path %>><i class="fas fa-key"></i> Create Keychain </a>
           </li>
               
-          
+          <li class="nav-item">
+            <a class="nav-link" href=<%= magnet_path %>><i class="fas fa-magnet"></i> Create Magnet </a>
+          </li>
+
             <% if user_signed_in? %>
               <li class="nav-item">
                 <a class="nav-link" href=<%= my_things_path %>><i class="fas fa-brain"></i> My Things </a>
