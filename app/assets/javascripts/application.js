@@ -48,18 +48,27 @@ $( document ).on('turbolinks:load', function() {
 			  //grab tmp file url, and named variables from params
 			  var file_url = $(this).attr('href');
 			  var f = new File([""], file_url);
+			  //var i = new File([""], "http://localhost:3000/assets/images/oshw.png");
 			  var url_array = file_url.split(":");
 			  var thing_path = "localhost:" + url_array[url_array.length - 1];
 			  var file_title = $('[name="text"]').val();
+			  var my_id = $('#myid').attr('href');
+			  //housekeeping stuff
 			  var msg = "Congrats on your custom model! Redirecting you to your home page.";
+			  var today = new Date();
+			  var date = (today.getMonth()+1)+'-'+today.getDate()+'-'+today.getFullYear();
+			  var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+			  var dateTime = date+' '+time;
+
 			  //create formData upload
 			  var formData = new FormData(), $input = $(this);
 			  
 			  	//populate our flat formData
 			  	formData.append('thing[name]',file_title);
 			  	formData.append('thing[thing_url]',f);
-			  	formData.append('thing[description',"my model3d");
+			  	formData.append('thing[description',"Created with model3d on " + dateTime);
 			  	formData.append('thing[image_url]',"");
+			  	formData.append('thing[user_id]', my_id);
 
 				$.ajax({
 				  url: "/things",

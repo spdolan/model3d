@@ -5,19 +5,21 @@
   <%= @thing.name %>
 </p>
 
-<p>
-  <strong>Thing url:</strong>
-  <%= @thing.thing_url %>
-</p>
+<% if @thing.image_url.url != nil  %>
+	<%= image_tag @thing.image_url.url %>
+
+<% else %>
+	<br>
+	<h5>This looks like a new model! Feel free to add a picture, description, and share with others!</h5>
+	<br>
+
+	<%= image_tag 'oshw.png' %>
+	
+<% end %>
 
 <p>
   <strong>Description:</strong>
   <%= @thing.description %>
-</p>
-
-<p>
-  <strong>Image url:</strong>
-  <%= @thing.image_url %>
 </p>
 
 <%= link_to 'Edit', edit_thing_path(@thing) %> |

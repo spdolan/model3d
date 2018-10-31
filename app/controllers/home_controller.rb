@@ -14,4 +14,15 @@ class HomeController < ApplicationController
   def about
   end
 
+  def my_things
+  	@my_models = []
+
+	Thing.all.each do |thing|
+		if thing.user_id == current_user.id
+			@my_models.push(thing)
+		end
+	end
+  end
+
+
 end

@@ -7,7 +7,7 @@
 
 function getParameterDefinitions () {
   return [
-    {name: 'name', initial: 'Sean Example', type: 'text', caption: 'Your name', size: 30},
+    {name: 'text', initial: 'Sean Example', type: 'text', caption: 'Your name', size: 30},
     {name: 'title', initial: 'Rails Developer', type: 'text', caption: 'Your title', size: 30},
     {name: 'thickness', initial: 3, type: 'float', caption: 'Thickness'}
   ];
@@ -19,7 +19,7 @@ function main (param) {
   var p = []; // our stack of extruded line segments
 
   // -- render name & extrude
-  l = vector_text(0, 0, param.name);
+  l = vector_text(0, 0, param.text);
   l.forEach(function (s) {
     p.push(rectangular_extrude(s, {w: param.thickness, h: param.thickness}));
   });

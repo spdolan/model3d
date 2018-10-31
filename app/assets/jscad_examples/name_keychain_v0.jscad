@@ -1,13 +1,13 @@
 // title      : Name Plate
-// author     : Rene K. Mueller
+// author     : Sean Dolan/Rene K. Mueller
 // license    : MIT License
 // description: create your own name plate
-// date       : 2013/04/24
-// file       : name_plate.jscad
+// date       : 2018/10/27
+// file       : name_keychain_v0.jscad
 
 function getParameterDefinitions () {
   return [
-    {name: 'name', initial: 'Sean Dolan', type: 'text', caption: 'Your name', size: 30},
+    {name: 'text', initial: 'Sean Dolan', type: 'text', caption: 'Your name', size: 30},
     {name: 'title', initial: 'Ruby on Rails Developer', type: 'text', caption: 'Your title', size: 30},
     {name: 'thickness', initial: 3, type: 'float', caption: 'Thickness'}
   ];
@@ -19,7 +19,7 @@ function main (param) {
   var p = []; // our stack of extruded line segments
 
   // -- render name & extrude
-  l = vector_text(0, 0, param.name);
+  l = vector_text(0, 0, param.text);
   l.forEach(function (s) {
     p.push(rectangular_extrude(s, {w: param.thickness, h: param.thickness}));
   });

@@ -12,10 +12,10 @@
   <body>
 
     <nav class="navbar fixed-top navbar-expand-xl navbar-light bg-info">
-      
+      <a class="navbar-brand" href=<%= root_path %>><i class="fas fa-home"></i> Model3d <span class="sr-only">(current)</span></a>
         <ul class="navbar-nav w-100 ">
           <li class="nav-item active">
-            <a class="nav-link" href=<%= root_path %>><i class="fas fa-home"></i> Home <span class="sr-only">(current)</span></a>
+            
           </li>
 
           <li class="nav-item">
@@ -25,17 +25,15 @@
           <li class="nav-item">
             <a class="nav-link" href=<%= keychain_path %>><i class="fas fa-key"></i> Create Keychain </a>
           </li>
-
-          <li class="nav-item w-40">
-            
-            
-          </li>
-
-        
-        
-          <span >
+              
+          
             <% if user_signed_in? %>
-              <li class="nav-item dropdown justify-content-end">
+              <li class="nav-item">
+                <a class="nav-link" href=<%= my_things_path %>><i class="fas fa-brain"></i> My Things </a>
+              </li>
+
+
+              <li class="nav-item dropdown ml-auto">
                 <a class="nav-link dropdown-toggle justify-content-end" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <% if current_user.avatar.url != nil  %>
                     <%= image_tag current_user.avatar.url, size: 40, class: 'rounded-circle' %>
@@ -48,14 +46,15 @@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href=<%= destroy_user_session_path %> data-method="delete">Sign Out</a>
                   </div>
-              </li>
-
+              
+                </li>
             <% else %>
-                <li class="nav-item justify-content-end">
-                  <a class="btn btn-outline-success text-light" href=<%= new_user_session_path %>> Sign In </a>
+                <li class="nav-item dropdown ml-auto">
+                  <a class="btn btn-success text-light" href=<%= new_user_session_path %>> Sign In </a>
+                  <a class="btn btn-light" href=<%= new_user_registration_path %>>Sign Up</a>
                 </li>
             <% end %>       
-          </span>
+          
 
           </ul>
       </nav>
