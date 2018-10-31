@@ -40,7 +40,7 @@ $( document ).on('turbolinks:load', function() {
 	$('.downloadOutputFileLink').on('click', function (e) {		  
 		  //check if user is signed in
 		  var sign_in = document.getElementById('signin');
-		  var msg = "We hope you enjoy your custom model! Sign In to share with others or order a print."
+		  var msg = "We hope you enjoy your custom model! Sign In to share with others or order a print.";
 		  if(sign_in !== null){
 		  //prevent JSCAD save file
 			  e.preventDefault();
@@ -48,10 +48,10 @@ $( document ).on('turbolinks:load', function() {
 			  //grab tmp file url, and named variables from params
 			  var file_url = $(this).attr('href');
 			  var f = new File([""], file_url);
-			  var url_array = file_url.split(":")
-			  var thing_path = "localhost:" + url_array[url_array.length - 1]
+			  var url_array = file_url.split(":");
+			  var thing_path = "localhost:" + url_array[url_array.length - 1];
 			  var file_title = $('[name="text"]').val();
-			  var msg = "Congrats on your custom model! Redirecting you to your home page."
+			  var msg = "Congrats on your custom model! Redirecting you to your home page.";
 			  //create formData upload
 			  var formData = new FormData(), $input = $(this);
 			  
@@ -71,7 +71,7 @@ $( document ).on('turbolinks:load', function() {
 				});
 
 			//window.location.reload(true);		  
-		}
+		};
 
 		alert(msg);
 	});
