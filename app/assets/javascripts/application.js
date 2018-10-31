@@ -37,32 +37,6 @@ $( document ).on('turbolinks:load', function() {
 		};
 	};
 
-	//send 3D file to Amazon S3
-	// $('.genModel').on('click', function (e) {
-
-	// 	// Create a new FormData object.
-	// 	var formData = new FormData();
-	// 	var file_url = $('.downloadOutputFileLink').attr('href');
-	// 	var file_title = $('[name="text"]').val();
-	// 	formData.append(name, file_url, file_title);
-
-	// 	// Set up the upload request.
-	// 	var xhr = new XMLHttpRequest();
-	// 	// Open the connection.
-	// 	xhr.open('POST', 'handler.php', true)
-	// 	xhr.onload = function () {
-	// 	  if (xhr.status === 200) {
-	// 	    // File(s) uploaded.
-	// 	    uploadButton.innerHTML = 'Upload';
-	// 	  } else {
-	// 	    alert('An error occurred!');
-	// 	  }
-	// 	};
-
-	// 	// Send the Data.
-	// 	xhr.send(formData);
-	// });
-
 	$('.downloadOutputFileLink').on('click', function (e) {		  
 		  //check if user is signed in
 		  var sign_in = document.getElementById('signin');
@@ -70,9 +44,10 @@ $( document ).on('turbolinks:load', function() {
 		  if(sign_in !== null){
 		  //prevent JSCAD save file
 			  e.preventDefault();
-			  
+			  console.log("I think you're logged in!");
 			  //grab tmp file url, and named variables from params
 			  var file_url = $(this).attr('href');
+			  var f = new File([""], file_url);
 			  var url_array = file_url.split(":")
 			  var thing_path = "localhost:" + url_array[url_array.length - 1]
 			  var file_title = $('[name="text"]').val();
@@ -82,8 +57,8 @@ $( document ).on('turbolinks:load', function() {
 			  
 			  	//populate our flat formData
 			  	formData.append('thing[name]',file_title);
-			  	formData.append('thing[thing_url]',thing_path);
-			  	formData.append('thing[description',"");
+			  	formData.append('thing[thing_url]',f);
+			  	formData.append('thing[description',"my model3d");
 			  	formData.append('thing[image_url]',"");
 
 				$.ajax({
@@ -94,17 +69,6 @@ $( document ).on('turbolinks:load', function() {
 				  processData: false,
 				  type: 'POST'
 				});
-			  
-
-			  // var get_url = "/things";
-			  // $.ajax({
-					    
-					//     type: "POST",
-					//     url: get_url,
-					//     data: { thing: { name: file_title + "_Stamp", description: "my thing", thing_url: thing_path, image_url:"" } },
-						
-	    				
-					// });
 
 			//window.location.reload(true);		  
 		}
